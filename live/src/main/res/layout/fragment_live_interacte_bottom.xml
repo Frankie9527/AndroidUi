@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="handler"
+            type="org.android.live.model.LiveUserActionHandlers"/>
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:onClick="@{handler.showInput}"
+                android:id="@+id/img_show_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/selector_show_input" />
+
+            <ImageView
+                android:onClick="@{handler.closeUi}"
+                android:id="@+id/img_close_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/selector_close_room" />
+
+            <ImageView
+                android:onClick="@{handler.share}"
+                android:id="@+id/img_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@+id/img_close_room"
+                android:src="@drawable/selector_share" />
+
+            <ImageView
+                android:onClick="@{handler.sendGift}"
+                android:id="@+id/img_send_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@id/img_share"
+                android:src="@drawable/selector_gift" />
+
+            <ImageView
+                android:onClick="@{handler.privateChat}"
+                android:id="@+id/iv_private_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/img_send_gift"
+                android:src="@drawable/selector_privatechat" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_input_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+           >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:hint="在此输入你要说的话!"
+                    android:maxLength="30"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textColor="#888889"
+                    android:textColorHint="#c8c8c8"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:onClick="@{handler.sendMsg}"
+                    android:id="@+id/tv_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:color/holo_blue_bright"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="发送"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+</FrameLayout>
+</layout>
